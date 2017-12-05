@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.unimas.she.presto</groupId>
+  <artifactId>presto-unimas-functions</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>presto-unimas-functions</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <presto.version>0.189</presto.version>
+    <dep.airlift.version>0.156</dep.airlift.version>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    
+    
+   <dependency>
+      <groupId>com.facebook.presto</groupId>
+      <artifactId>presto-spi</artifactId>
+      <version>${presto.version}</version>
+   </dependency>
+   
+   <dependency>
+       <groupId>io.airlift</groupId>
+       <artifactId>json</artifactId>
+       <version>${dep.airlift.version}</version>
+   </dependency>   
+                
+    <dependency>
+       <groupId>org.locationtech.spatial4j</groupId>
+       <artifactId>spatial4j</artifactId>
+       <version>0.6</version>
+    </dependency>
+
+    <dependency>
+       <groupId>org.apache.commons</groupId>
+       <artifactId>commons-math3</artifactId>
+       <version>3.6.1</version>
+    </dependency>
+
+    <dependency>
+       <groupId>org.postgresql</groupId>
+       <artifactId>postgresql</artifactId>
+       <version>42.1.4</version>
+    </dependency>
+            
+  </dependencies>
+</project>
