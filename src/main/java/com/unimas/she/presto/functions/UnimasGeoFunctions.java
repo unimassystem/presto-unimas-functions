@@ -123,4 +123,23 @@ public class UnimasGeoFunctions {
 		}
 		return distanceSimplify(Lat_A, Lng_A, Lat_B, Lng_B);
 	}
+	
+	
+	
+	@ScalarFunction("geo_hash")
+	@Description("Returns hash")
+	@SqlType(StandardTypes.DOUBLE)
+	public static double geoHash(@SqlType(StandardTypes.DOUBLE) double Lat,
+			@SqlType(StandardTypes.DOUBLE) double Lng, @SqlType(StandardTypes.INTEGER) int numberOfCharacters) {
+		if (!checkY(Lat) || !checkX(Lng)) {
+			return Double.MAX_VALUE;
+		}
+		
+		
+		return 0;
+	}
+	
+	
+	
+	
 }

@@ -2,7 +2,6 @@ package com.unimas.she.presto.functions;
 
 import static com.unimas.she.presto.functions.UnimasGeoFunctions.*;
 import static com.unimas.she.presto.functions.UnimasJdbcPushDown.*;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -14,16 +13,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
-
 import io.airlift.slice.Slices;
 
-
-
-
 public class Utest {
-
-
-	
 	static void bench() {
 		long begin;
 		long end;
@@ -90,8 +82,7 @@ public class Utest {
 				Slices.utf8Slice("postgres"),
 				Slices.utf8Slice("postgres"),
 				Slices.utf8Slice("select * from zjhm where id > 20001 limit 10"));
-
-		
-		
+		int a = -1;
+		System.out.println(a * 3600);
 	}
 }
