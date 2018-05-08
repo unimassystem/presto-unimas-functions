@@ -78,11 +78,9 @@ public class Utest {
 	
 
 	public static void main(String[] args) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException, IOException {
-		statementExecute(Slices.utf8Slice("jdbc:postgresql://10.68.23.21:5432/las"),
-				Slices.utf8Slice("postgres"),
-				Slices.utf8Slice("postgres"),
-				Slices.utf8Slice("select * from zjhm where id > 20001 limit 10"));
-		int a = -1;
-		System.out.println(a * 3600);
+		double Lat = 32;
+		double Lng = 113;
+		int numberOfCharacters =12;
+		System.out.println(GeoHash.geoHashStringWithCharacterPrecision(Lat, Lng, numberOfCharacters));
 	}
 }

@@ -12,6 +12,9 @@ import com.facebook.presto.spi.function.ScalarFunction;
 import com.facebook.presto.spi.function.SqlType;
 import com.facebook.presto.spi.type.StandardTypes;
 
+import io.airlift.slice.Slice;
+import io.airlift.slice.Slices;
+
 public class UnimasGeoFunctions {
 	private static double[] fitter;
 	static {
@@ -99,7 +102,7 @@ public class UnimasGeoFunctions {
 		}
 		return distanceSimplifyMore(Lat_A, Lng_A, Lat_B, Lng_B, fitter);
 	}
-	
+
 	@ScalarFunction("geo_distance2")
 	@Description("Returns distance")
 	@SqlType(StandardTypes.DOUBLE)
@@ -123,23 +126,16 @@ public class UnimasGeoFunctions {
 		}
 		return distanceSimplify(Lat_A, Lng_A, Lat_B, Lng_B);
 	}
-	
-	
-	
+
 	@ScalarFunction("geo_hash")
 	@Description("Returns hash")
-	@SqlType(StandardTypes.DOUBLE)
-	public static double geoHash(@SqlType(StandardTypes.DOUBLE) double Lat,
-			@SqlType(StandardTypes.DOUBLE) double Lng, @SqlType(StandardTypes.INTEGER) int numberOfCharacters) {
+	@SqlType(StandardTypes.VARCHAR)
+	public static Slice geoHash(@SqlType(StandardTypes.DOUBLE) double Lat, @SqlType(StandardTypes.DOUBLE) double Lng,
+			@SqlType(StandardTypes.INTEGER) long numberOfCharacters) {
 		if (!checkY(Lat) || !checkX(Lng)) {
-			return Double.MAX_VALUE;
+			return Slices.EMPTY_SLICE;
 		}
-		
-		
-		return 0;
+		return Slices.utf8Slice(new String(GeoHash.geoHashStringWithCharacterPrecision(Lat, Lng, (int) numberOfCharacters)));
 	}
-	
-	
-	
-	
+
 }
